@@ -1,6 +1,6 @@
 .selectIcon {
-  /* width: 20px;
-  height: 20px; */
+  width: 200px;
+  height: 200px;
   background: url(../images/selectIcon.png) no-repeat;
   background-size: 100%;
   display: inline-block;
@@ -9,4 +9,9 @@
 }
 .selectIcon:hover {
   box-shadow: 0 0 8px;
+}
+
+.selectIcon:active {
+  width: 80%;
+  height: 80%;
 }
