@@ -21,7 +21,14 @@ function handelOnline() {
 }
 
 function handleTitleClick() {
-  title.style.color = "blue";
+  const currentColor = title.style.color;
+  let newColor;
+  if (currentColor === "blue") {
+    newColor = "tomato";
+  } else {
+    newColor = "blue";
+  }
+  title.style.color = newColor;
 }
 
 function handleTitleMouseOver() {
