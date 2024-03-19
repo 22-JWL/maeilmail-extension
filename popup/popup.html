@@ -3,20 +3,118 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-    <style type="text/css">
-      @import url("style.css");
-    </style>
   </head>
   <body>
     <main>
-      <h1 class="hello">Welcome to Click Me!</h1>
-      <p>클릭하고 신기한 현상을 보세요!</p>
-      <button onclick="window.close()">닫기</button>
+      <div class="header">
+        <img src="../images/image 3.svg" alt="" />
+      </div>
+      <!-- <h1 class="hello">Welcome to Click Me!</h1>
+      <p>클릭하고 신기한 현상을 보세요!</p> -->
+      <!-- <button onclick="window.close()">닫기</button> -->
 
-      <div>
+      <!-- <div>
         <img class="selectIcon" src="../images/starship.jpg" />
         <img class="selectIcon" src="https://i.imgur.com/Javjyuo.jpg" />
+      </div> -->
+
+      <div class="mailFrom">
+        <p>메일을 보내는 분은 누구 인가요?</p>
+
+        <span>
+          From&nbsp&nbsp
+          <input type="text" />
+          <input type="text" />
+        </span>
+      </div>
+
+      <div class="mailTo">
+        <hr />
+        <p>메일을 받으실 분은 누구 인가요?</p>
+        <span>
+          To&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+          <input type="text" />
+          <div class="dropdown">
+            <button class="dropbtn">
+              <span class="dropbtn_icon">more_horiz</span>
+              <span class="dropbtn_content"></span>
+              <span
+                class="dropbtn_click"
+                style="
+                  font-family: Material Icons;
+                  font-size: 16px;
+                  color: #3b3b3b;
+                  float: right;
+                "
+                onclick="dropdown()"
+                >arrow_drop_down</span
+              >
+            </button>
+            <div class="dropdown-content">
+              <div class="fastfood" onclick="showMenu(this.innerText)">
+                교수님께
+              </div>
+              <div class="fastfood" onclick="showMenu(this.innerText)">
+                동기에게
+              </div>
+              <div class="fastfood" onclick="showMenu(this.innerText)">
+                선배에게
+              </div>
+              <div class="fastfood" onclick="showMenu(this.innerText)">
+                후배에게
+              </div>
+              <div class="fastfood" onclick="showMenu(this.innerText)">
+                친구에게
+              </div>
+              <div class="fastfood" onclick="showMenu(this.innerText)">
+                조교에게
+              </div>
+            </div>
+          </div>
+        </span>
+      </div>
+
+      <div class="mailFor">
+        <hr />
+        <p>어떤상황에 사용하시는 건가요?</p>
+
+        <span>
+          <input
+            type="text"
+            style="
+              border-radius: 200px;
+              background-color: #746a6a;
+              color: #fff;
+              width: 210px;
+              margin-left: 30px;
+            "
+            placeholder="    &nbsp ex) 증원요청, 감사인사 질문 등"
+          />
+        </span>
+      </div>
+
+      <div class="img-2669-1-wrapper">
+        <img class="img-2669-1-icon" alt="" src="../images/IMG_2669.svg" />
+      </div>
+      <div class="frame-wrapper1">
+        <div class="starred-parent5">
+          <b class="starred10">
+            <p class="p">입력된 내용을 바탕으로</p>
+            <p class="ai">AI 메일 작성 도와드릴게요</p>
+          </b>
+          <div class="frame-wrapper2">
+            <button class="tablermail-ai-wrapper">
+              <img
+                class="tablermail-ai-icon"
+                alt=""
+                src="../images/tablermailai.svg"
+              />
+            </button>
+          </div>
+        </div>
       </div>
     </main>
     <script src="popup.js"></script>

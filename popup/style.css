@@ -1,4 +1,6 @@
-.selectIcon {
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700");
+/* .selectIcon {
   width: 200px;
   height: 200px;
   background: url(../images/selectIcon.png) no-repeat;
@@ -14,4 +16,171 @@
 .selectIcon:active {
   width: 80%;
   height: 80%;
+} */
+
+/* // 반응형 크기 계산 (1440px 기준) */
+/* @function toSize($size) {
+  $calculatedSize: ($size / 1440) * 100;
+  @return #{$calculatedSize * 1vw};
+} */
+
+body {
+  display: flex;
+  width: 295px;
+  /* width: toSize(295px); */
+  height: 497px;
+  /* height: toSize(497px); */
+
+  flex-shrink: 0;
+  margin: 0;
+  color: #4a4a4a;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.037px;
+}
+main {
+}
+p {
+  margin: 0;
+}
+hr {
+  margin: 0px 0px 13px 0px;
+}
+input {
+  height: 22px;
+  border-radius: 200px;
+  background-color: #746a6a;
+  color: #fff;
+  width: 101px;
+}
+
+.header {
+  width: 295px;
+  height: 33px;
+  flex-shrink: 0;
+  background-color: #ffd875;
+}
+.header img {
+  margin: 5px 13px;
+}
+/* ////////// */
+
+.dropdown-label {
+  font-size: 12px;
+  margin: 10px;
+  font-weight: bold;
+  color: rgb(50, 50, 50);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn_icon {
+  font-family: "Material Icons";
+}
+.dropbtn {
+  top: 7px;
+  display: block;
+  border: 2px solid rgb(94, 94, 94);
+  border-radius: 200px;
+  background-color: #746a6a;
+  font-weight: 400;
+  color: rgb(124, 124, 124);
+  padding: 12px;
+  width: 112px;
+  height: 28px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 12px;
+  z-index: 1;
+  position: relative;
+}
+.dropdown-content {
+  display: none;
+  font-weight: 400;
+  background-color: #fcfcfc;
+  border-radius: 8px;
+  height: 160px;
+  overflow: scroll;
+  box-shadow: 0px 0px 10px 3px rgba(190, 190, 190, 0.6);
+  position: absolute;
+}
+.dropdown-content::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+.dropdown-content::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: rgb(194, 194, 194);
+}
+
+.dropdown-content div {
+  display: block;
+  text-decoration: none;
+  color: rgb(37, 37, 37);
+  font-size: 12px;
+  padding: 12px 20px;
+}
+.dropdown-content div:hover {
+  background-color: rgb(226, 226, 226);
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+.img-2669-1-icon {
+  height: 70px;
+  width: 102px;
+  position: relative;
+  object-fit: cover;
+}
+.img-2669-1-wrapper {
+  display: flex;
+  padding: 39px 0px 24px 0px;
+  justify-content: center;
+  /* padding: 0 20px 0 21px; */
+}
+
+.frame-wrapper1 {
+  padding: 0 66px;
+  text-align: center;
+}
+
+.frame-wrapper2 {
+}
+
+.tablermail-ai-wrapper {
+  background-color: #0e57cb;
+  border-radius: 200px;
+  width: 105px;
+  margin-top: 13px;
+}
+
+/* ////// */
+
+.mailFrom,
+.mailTo,
+.mailFor {
+  margin: 10px 13px 0px 13px;
+}
+
+.mailFrom p,
+.mailFor p {
+  margin: 0px 0px 5px 0px;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.317);
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.037px;
 }
