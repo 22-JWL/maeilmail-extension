@@ -1,66 +1,18 @@
 const images = Array.from(document.querySelectorAll("img"));
-// const title = document.querySelector("h1.hello");
-
-// title.innerText = "Hello from popup.js";
-
-// title.addEventListener("click", handleTitleClick);
-// title.addEventListener("mouseover", handleTitleMouseOver);
-// title.addEventListener("mouseout", handleTitleMouseOut);
-
-// // window.addEventListener("resize", handlewindowResize);
-// window.addEventListener("copy", handlewindowCopy);
-// window.addEventListener("offline", handelOffline);
-// window.addEventListener("online", handelOnline);
-
-// function handelOffline() {
-//   console.log("out of service!");
-// }
-
-// function handelOnline() {
-//   console.log("we are back!");
-// }
-
-// function handleTitleClick() {
-//   const currentColor = title.style.color;
-//   let newColor;
-//   if (currentColor === "blue") {
-//     newColor = "tomato";
-//   } else {
-//     newColor = "blue";
-//   }
-//   title.style.color = newColor;
-// }
-
-// function handleTitleMouseOver() {
-//   title.innerText = "Mouse is here!";
-// }
-
-// function handleTitleMouseOut() {
-//   title.innerText = "Mouse is gone!";
-// }
-
-// // function handlewindowResize() {
-// //   document.body.style.backgroundColor = "tomato";
-// // }
-// function handlewindowCopy() {
-//   alert("copied!");
-// }
-
-// function handleTitleClick
 
 window.onload = () => {
   document.querySelector(".dropbtn_click").onclick = () => {
     dropdown();
   };
 
-  // // fastfood 클래스를 가진 모든 요소에 대해 이벤트 리스너를 추가
-  // var fastfoodItems = document.getElementsByClassName("fastfood");
-  // for (let i = 0; i < fastfoodItems.length; i++) {
-  //   fastfoodItems[i].onclick = (e) => {
-  //     // 이벤트 발생한 요소의 텍스트를 showMenu 함수에 전달
-  //     showMenu(e.target.innerText);
-  //   };
-  // }
+  // fastfood 클래스를 가진 모든 요소에 대해 이벤트 리스너를 추가
+  var fastfoodItems = document.getElementsByClassName("fastfood");
+  for (let i = 0; i < fastfoodItems.length; i++) {
+    fastfoodItems[i].onclick = (e) => {
+      // 이벤트 발생한 요소의 텍스트를 showMenu 함수에 전달
+      showMenu(e.target.innerText);
+    };
+  }
 
   window.onload = () => {
     // 모든 드롭다운 버튼에 대해 이벤트 리스너 추가
@@ -86,7 +38,7 @@ window.onload = () => {
     // showMenu 함수를 호출하는 코드가 없으므로, 해당 기능에 대한 더 자세한 설명이 필요합니다.
   };
 
-  // 창 밖의 클릭을 감지하여 모든 드롭다운을 닫는 코드
+  //창 밖의 클릭을 감지하여 모든 드롭다운을 닫는 코드
   window.onclick = (event) => {
     if (!event.target.matches(".dropbtn_click")) {
       var dropdowns = document.querySelectorAll(".dropdown-content");
@@ -139,8 +91,43 @@ window.onclick = (e) => {
   }
 };
 
-// images.forEach((img) => {
-//   img.addEventListener("click", () => {
-//     chrome.storage.local.set({ image: img.src });
-//   });
-// });
+const loginForm = document.querySelector("#inquiryForm");
+const loginInput = document.querySelectorAll("#inquiryForm input");
+
+function onLoginSubmit(event) {
+  event.preventDefault();
+
+  var data = Array.from(loginInput).reduce((acc, input) => {
+    acc[input.id] = input.value;
+    return acc;
+  }, {});
+
+  //어캐했누ㅠ
+  const dropbtn_content = document.querySelector(".dropbtn_content"); // 추가
+
+  data["receiver_info"] = dropbtn_content.innerText; // 추가
+  delete data[""];
+  data["user_id"] = "1";
+  console.log(data);
+
+  fetch(, {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the response data here
+      console.log(JSON.stringify(data));
+    })
+    .catch((error) => {
+      // Handle any errors here
+      console.error(error);
+    });
+}
+
+loginForm.addEventListener("submit", onLoginSubmit);
+
+// document.getElementById("sendButton").addEventListener("click", sendRequest);
