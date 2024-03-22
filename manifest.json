@@ -14,11 +14,13 @@
     "default_icon": "icon32.png",
     "default_title": "Click me!"
   },
-  "permissions": ["storage"],
+  "permissions": ["activeTab", "storage", "scripting", "tabs"],
   "content_scripts": [
     {
+      "run_at": "document_start",
       "matches": ["<all_urls>"],
-      "js": ["scripts/inject.js"]
+      "js": ["popup/contentScript.js"],
+      "run_at": "document_end"
     }
   ]
 }

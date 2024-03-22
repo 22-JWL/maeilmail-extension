@@ -84,7 +84,7 @@ input {
   font-family: "Material Icons";
 }
 .dropbtn {
-  top: 7px;
+  top: 21px;
   display: block;
   border: 2px solid rgb(94, 94, 94);
   border-radius: 200px;
@@ -109,6 +109,8 @@ input {
   overflow: scroll;
   box-shadow: 0px 0px 10px 3px rgba(190, 190, 190, 0.6);
   position: absolute;
+  width: 110px;
+  top: 50px;
 }
 .dropdown-content::-webkit-scrollbar {
   width: 5px;
@@ -165,9 +167,12 @@ input {
 /* ////// */
 
 .mailFrom,
-.mailTo,
-.mailFor {
+.mailTo {
   margin: 10px 13px 0px 13px;
+}
+
+.mailFor {
+  margin: -10px 13px 0px 13px;
 }
 
 .mailFrom p,

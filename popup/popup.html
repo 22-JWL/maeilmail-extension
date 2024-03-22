@@ -25,8 +25,8 @@
 
           <span>
             From&nbsp&nbsp
-            <input type="text" id="sender" name="sender" />
-            <input type="text" id="sender_info" name="sender_info" />
+            <input type="text" id="sender" name="sender" placeholder="이름" style="text-align: center;"/>
+            <input type="text" id="sender_info" name="sender_info" placeholder="소속" style="text-align: center;"/>
           </span>
         </div>
 
@@ -36,18 +36,23 @@
           <span>
             To&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 
-            <input type="text" id="receiver" name="receiver" />
+            <input type="text" id="receiver" name="receiver" placeholder="이름" style="text-align: center;"/>
             <div class="dropdown">
               <input type="button" class="dropbtn">
-                <span class="dropbtn_icon">more_horiz</span>
-                <span class="dropbtn_content"></span>
+                <span class="dropbtn_icon" style="position: relative; z-index: 1000; left : 20px; top : -1px;color:rgb(152 146 147);">받을 분 선택</span>
+                <span class="dropbtn_content" style="position: relative; z-index: 1000;  justify-content: center;align-items: center;display: flex;
+                "></span>
                 <span
                   class="dropbtn_click"
                   style="
                     font-family: Material Icons;
-                    font-size: 16px;
+                    font-size: 36px;
                     color: #3b3b3b;
                     float: right;
+                    z-index: 1000;
+                    position: relative;
+                    top : -26px;
+
                   "
                   onclick="dropdown()"
                   >arrow_drop_down</span
@@ -86,10 +91,12 @@
                 background-color: #746a6a;
                 color: #fff;
                 width: 210px;
-                margin-left: 30px;
+                margin-left: 34px;
+                text-align: center;
+                margin-top: 4px;
               "
               id="purpose"
-              placeholder="    &nbsp ex) 증원요청, 감사인사 질문 등"
+              placeholder="ex) 증원요청, 감사인사 질문 등"
             />
           </span>
         </div>

@@ -107,10 +107,10 @@ function onLoginSubmit(event) {
 
   data["receiver_info"] = dropbtn_content.innerText; // 추가
   delete data[""];
-  data["user_id"] = "1";
+  data["user_id"] = 1;
   console.log(data);
 
-  fetch(, {
+  fetch("https://maeilmail.site/api/helper", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
@@ -120,7 +120,27 @@ function onLoginSubmit(event) {
     .then((response) => response.json())
     .then((data) => {
       // Handle the response data here
-      console.log(JSON.stringify(data));
+      //이렇게하면 데이터가 json형식으로 출력됨
+      const message = data;
+
+      // document.addEventListener("DOMContentLoaded", function () {
+      //   const pasteButton = document.getElementById("pasteButton");
+
+      // pasteButton.addEventListener("click", function () {
+      ///메시지 가져옴
+
+      // 현재 활성화된 탭을 찾습니다.
+      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        console.log("tabs.id" + tabs.id);
+        // 메시지를 contentScript.js로 전달합니다.
+        chrome.tabs.sendMessage(tabs[0].id, {
+          action: "pasteMessage",
+          message: message,
+        });
+        console.log(message);
+      });
+      // });
+      // });
     })
     .catch((error) => {
       // Handle any errors here
@@ -131,3 +151,38 @@ function onLoginSubmit(event) {
 loginForm.addEventListener("submit", onLoginSubmit);
 
 // document.getElementById("sendButton").addEventListener("click", sendRequest);
+
+// document
+//   .getElementById("insertTemplate")
+//   .addEventListener("click", function () {
+//     // 이메일 본문을 찾는 셀렉터. 주어진 div의 id나 클래스명을 기반으로 적절히 조정해야 할 수 있습니다.
+//     var emailBodySelector = 'div[id=":yp"]';
+
+//     // 이메일 본문을 찾습니다.
+//     var emailBody = document.querySelector(emailBodySelector);
+
+//     if (emailBody) {
+//       // 이메일 본문에 원하는 텍스트를 삽입합니다.
+//       emailBody.innerHTML = "여기에 원하는 텍스트를 삽입하세요.";
+//     } else {
+//       console.log("이메일 본문을 찾을 수 없습니다.");
+//       console.log(emailBody);
+//     }
+//   });
+
+document
+  .getElementById("insertTemplate")
+  .addEventListener("click", function () {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, { text: "insert_template" });
+    });
+  });
+
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+  if (request.text === "insert_template") {
+    var emailBody = document.querySelector('[aria-label="메일 본문"]');
+    if (emailBody) {
+      emailBody.innerHTML = "여기에 원하는 템플릿을 삽입하세요.";
+    }
+  }
+});
