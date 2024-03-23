@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "LJW's Extension",
-  "description": "The first extension that LJW made.",
+  "name": "MaeilMail",
+  "description": "새로운 세상의 문턱에서, 당신만의 지원군이 되어드리는 <이메일 작성 치트키>, <매일 메일> 입니다.",
   "version": "1.0",
   "icons": {
     "16": "icon16.png",
@@ -14,11 +14,11 @@
     "default_icon": "icon32.png",
     "default_title": "Click me!"
   },
-  "permissions": ["activeTab", "storage", "scripting", "tabs"],
+  "permissions": ["scripting", "tabs"],
   "content_scripts": [
     {
       "run_at": "document_start",
-      "matches": ["<all_urls>"],
+      "matches": ["https://mail.google.com/*"],
       "js": ["popup/contentScript.js"],
       "run_at": "document_end"
     }

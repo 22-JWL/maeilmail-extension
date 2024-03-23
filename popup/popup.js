@@ -97,6 +97,9 @@ const loginInput = document.querySelectorAll("#inquiryForm input");
 function onLoginSubmit(event) {
   event.preventDefault();
 
+  document.getElementById("overlay").style.visibility = "visible";
+  document.querySelector(".tablermail-ai-wrapper").style.display = "none";
+
   var data = Array.from(loginInput).reduce((acc, input) => {
     acc[input.id] = input.value;
     return acc;
@@ -137,7 +140,12 @@ function onLoginSubmit(event) {
           action: "pasteMessage",
           message: message,
         });
+
         console.log(message);
+        document.getElementById("overlay").style.visibility = "hidden";
+        document.querySelector(".tablermail-ai-wrapper").style.display =
+          "inline-block";
+        alert("메일 작성 성공!");
       });
       // });
       // });
@@ -145,6 +153,10 @@ function onLoginSubmit(event) {
     .catch((error) => {
       // Handle any errors here
       console.error(error);
+      document.getElementById("overlay").style.visibility = "hidden";
+      document.querySelector(".tablermail-ai-wrapper").style.display =
+        "inline-block";
+      alert("메일 작성 실패!");
     });
 }
 
@@ -170,19 +182,19 @@ loginForm.addEventListener("submit", onLoginSubmit);
 //     }
 //   });
 
-document
-  .getElementById("insertTemplate")
-  .addEventListener("click", function () {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, { text: "insert_template" });
-    });
-  });
+// document
+//   .getElementById("insertTemplate")
+//   .addEventListener("click", function () {
+//     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+//       chrome.tabs.sendMessage(tabs[0].id, { text: "insert_template" });
+//     });
+//   });
 
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  if (request.text === "insert_template") {
-    var emailBody = document.querySelector('[aria-label="메일 본문"]');
-    if (emailBody) {
-      emailBody.innerHTML = "여기에 원하는 템플릿을 삽입하세요.";
-    }
-  }
-});
+// chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+//   if (request.text === "insert_template") {
+//     var emailBody = document.querySelector('[aria-label="메일 본문"]');
+//     if (emailBody) {
+//       emailBody.innerHTML = "여기에 원하는 템플릿을 삽입하세요.";
+//     }
+//   }
+// });
